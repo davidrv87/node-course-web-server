@@ -4,7 +4,7 @@ const fs = require('fs');
 
 var app = express();
 
-// Folder for partial files
+// Folder for partial files.
 hbs.registerPartials(__dirname + '/views/partials');
 // Set the view engine
 app.set('view engine', 'hbs');
