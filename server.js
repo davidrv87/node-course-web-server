@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
@@ -27,7 +29,9 @@ app.use((req, res, next) => {
 });
 
 // app.use((req, res, next) => {
-//     res.render('maintenance.hbs');
+//     res.render('maintenance.hbs', {
+//         pageTitle: 'Maintenance Page',
+//     });
 // });
 
 // Serve a static directory
@@ -44,13 +48,19 @@ hbs.registerHelper('screamIt', (text) => {
 app.get('/', (req, res) => {
     res.render('home.hbs', {
         pageTitle: 'Home Page',
-        welcomeMessage: 'Hello to this page'
+        welcomeMessage: 'Welcome to this page'
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page'
+    }); // default location is views/
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page'
     }); // default location is views/
 });
 
